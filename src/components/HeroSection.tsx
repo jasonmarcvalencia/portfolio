@@ -47,7 +47,7 @@ const HeroSection = () => {
           <div className="relative">
             <div className="w-64 h-80 bg-white/10 relative overflow-visible">
               <img
-                src="/speed.jpg"
+                src="/DSC_8291.JPG"
                 alt="Jason Marc Valencia"
                 className="relative z-10 w-full h-full object-cover object-top"
               />
