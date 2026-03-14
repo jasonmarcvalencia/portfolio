@@ -60,12 +60,12 @@ const ProjectShowcaseSection = () => {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-[4/3] bg-white/10 cursor-pointer overflow-hidden block"
+              className="group relative bg-white/10 cursor-pointer overflow-hidden block rounded-lg"
             >
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
               />
 
               {/* Hover overlay */}
