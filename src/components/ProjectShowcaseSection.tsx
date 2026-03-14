@@ -1,34 +1,33 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const projects = [
   {
     id: 1,
-    title: "Coming Soon",
-    image: "",
-    category: "Project 01",
+    title: "Fremi",
+    description: "A business website for a Norwegian machine entrepreneur company featuring services, about, and contact sections.",
+    image: "/fremi.png",
+    category: "Business Website",
+    url: "https://fremi-eight.vercel.app/",
   },
   {
     id: 2,
-    title: "Coming Soon",
-    image: "",
-    category: "Project 02",
+    title: "Pro Gamer Gear",
+    description: "An e-commerce platform for high-performance gaming peripherals — mice, keyboards, and accessories.",
+    image: "/progamergear.png",
+    category: "E-Commerce",
+    url: "https://pro-gamer-gear.vercel.app/",
   },
   {
     id: 3,
-    title: "Coming Soon",
-    image: "",
-    category: "Project 03",
+    title: "Azure Paradise",
+    description: "A luxury resort booking site for private villas in the Maldives with elegant UI and smooth animations.",
+    image: "/azureparadise.png",
+    category: "Hotel & Resort",
+    url: "https://azure-paradise.vercel.app/",
   },
 ];
 
 const ProjectShowcaseSection = () => {
-  const [selectedProject, setSelectedProject] = useState<number | null>(null);
-
-  const handleImageClick = (projectId: number) => {
-    setSelectedProject(selectedProject === projectId ? null : projectId);
-  };
-
   return (
     <section id="projects" className="py-24 section-burgundy">
       <div className="container mx-auto px-6">
@@ -56,43 +55,32 @@ const ProjectShowcaseSection = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-4"
         >
           {projects.map((project) => (
-            <div
+            <a
               key={project.id}
-              className="relative aspect-[4/3] bg-white/10 cursor-pointer overflow-hidden"
-              onClick={() => handleImageClick(project.id)}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative aspect-[4/3] bg-white/10 cursor-pointer overflow-hidden block"
             >
-              {project.image ? (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-sm text-white/25 tracking-widest uppercase">
-                    {project.category}
-                  </span>
-                </div>
-              )}
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              />
 
-              <AnimatePresence>
-                {selectedProject === project.id && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="absolute inset-0 bg-white/10 flex flex-col items-center justify-center"
-                  >
-                    <span className="text-xs text-white/70 uppercase tracking-wider mb-2">
-                      {project.category}
-                    </span>
-                    <h3 className="font-heading font-bold text-xl md:text-2xl text-white text-center px-4">
-                      {project.title}
-                    </h3>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100">
+                <span className="text-xs text-white/70 uppercase tracking-wider mb-2">
+                  {project.category}
+                </span>
+                <h3 className="font-heading font-bold text-xl md:text-2xl text-white text-center px-4">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-white/60 text-center px-6 mt-2 max-w-xs">
+                  {project.description}
+                </p>
+              </div>
+            </a>
           ))}
         </motion.div>
 
