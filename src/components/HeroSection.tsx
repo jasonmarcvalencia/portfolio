@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
   { label: "About", href: "#about" },
-  { label: "Work Experience", href: "#work-experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Intern Experience", href: "#work-experience" },
   { label: "Contact", href: "#contact" },
 ];
 
