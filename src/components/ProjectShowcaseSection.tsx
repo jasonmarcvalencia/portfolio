@@ -25,6 +25,14 @@ const projects = [
     category: "Hotel & Resort",
     url: "https://azure-paradise.vercel.app/",
   },
+  {
+    id: 4,
+    title: "Grand Line DB",
+    description: "A One Piece encyclopedia featuring characters, devil fruits, and story arcs with search and dark mode.",
+    image: "/one-piece.png",
+    category: "Encyclopedia / Database",
+    url: "https://one-piece-sooty.vercel.app/",
+  },
 ];
 
 const ProjectShowcaseSection = () => {
